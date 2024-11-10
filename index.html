@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CSV or Use Google Sheets</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Page layout */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+            color: #333;
+        }
+
+        /* Container for the form */
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Heading styles */
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* File input styles */
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-label {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+            background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+            box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+            box-sizing: border-box;
+            transition: box-shadow 0.3s,transform 0.3s;
+        }
+
+        .file-label:hover {
+            box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+            transform: translateY(-2px);
+        }
+
+        /* Submit button */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #0a0a23;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        /* Footer text */
+        .footer-text {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Your CSV File or Use Google Sheets</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <!-- Choose between CSV upload and Google Sheets -->
+            <label for="file" class="file-label">Browse File (CSV)</label>
+            <input type="file" name="file" id="file" accept=".csv">
+            <br><br>
+            
+            <!-- Option for Google Sheets URL -->
+            <label for="google_sheet_url">Or provide Google Sheet URL:</label>
+            <input type="url" id="google_sheet_url" name="google_sheet_url" placeholder="Enter Google Sheet URL">
+            <br><br>
+
+            <button type="submit">Upload or Submit Google Sheet</button>
+        </form>
+        <p class="footer-text">Supported format: .csv or Google Sheets URL</p>
+    </div>
+
+    <script>
+        // JavaScript to display file name after selecting a file
+        const fileInput = document.getElementById('file');
+        const fileLabel = document.querySelector('.file-label');
+        
+        fileInput.addEventListener('change', (event) => {
+            if (fileInput.files.length > 0) {
+                fileLabel.innerText = fileInput.files[0].name;
+            }
+        });
+    </script>
+</body>
+</html>
