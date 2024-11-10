@@ -146,5 +146,5 @@ Make sure to replace placeholder values with your actual keys.
 - **Google Cloud Integration:** 
   The app allows you to store processed files in Google Cloud Storage for easier file management and secure access.
 
-# What I have not mentioned in this repository:
-I haven't mentioned Credentials.json folder as it contains my private confidential keys and datas, for other then can have their own Credentials.json once they work on google cloud console.
+# What I have not uploaded in this repository:
+I haven't mentioned Credentials.json file as it contains my private confidential keys and datas, for others who want to make the same project as mine then can have their own Credentials.json once they work on google cloud console.
