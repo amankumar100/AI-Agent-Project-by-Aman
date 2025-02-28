@@ -1,6 +1,6 @@
 # AI-Agent-Project-by-Aman
 
-Here’s a detailed explanation of each point to include in your README file for better understanding:
+Here’s a detailed explanation of each point included in README file for better understanding:
 
 ### Technologies Used:
 
